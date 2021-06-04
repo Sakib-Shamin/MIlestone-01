@@ -153,30 +153,30 @@ function printQuote()
 
     const citation = document.querySelector('.citation');
 
-    console.log(citation);
-
     const year = document.querySelector('.year');
-
-    console.log(year);
 
     // Injecting data into the initialized elements.
 
-    // quote.innerHTML = quoteObject.quote;
+    quote.innerText = quoteObject.quote;
     
-    // source.innerHTML = quoteObject.source;
+    source.firstChild.textContent = quoteObject.source;
 
-    console.log(quoteObject.citation);
+    citation.innerText = quoteObject.citation;
 
-    // citation.innerHTML = quoteObject.citation;
-
-    console.log(quoteObject.year);
-
-    // year.innerHTML = quoteObject.year;
+    year.innerText = quoteObject.year;
 }
 
 /***
  * click event listener for the print quote button
  ***/
 
-// console.log(quotes);
-printQuote();
+document.getElementById('load-quote').addEventListener('click', printQuote);
+
+/***
+ * This will happen when the page opens
+ ***/
+
+window.addEventListener('load', (event) => {
+    event.preventDefault();
+    printQuote();
+});
